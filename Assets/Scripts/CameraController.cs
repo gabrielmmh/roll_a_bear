@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     private Vector3 offset; // Deslocamento da câmera em relação ao jogador
 
     private float currentRotationX = 0f; // Para limitar a rotação vertical
+    public float minCameraHeight = 5f; // Altura mínima da câmera (para evitar que fique abaixo do chão)
 
     void Start()
     {
@@ -23,26 +24,23 @@ public class CameraController : MonoBehaviour
         float horizontalMouseInput = Input.GetAxis("Mouse X");
         float verticalMouseInput = Input.GetAxis("Mouse Y");
 
-        // Entrada do controle (analógico direito)
-        // float horizontalRightStickInput = Input.GetAxis("Horizontal");
-        // float verticalRightStickInput = Input.GetAxis("Vertical");
-
-        // Combina a entrada de controle e mouse para ambos os eixos
-        // float horizontalInput = horizontalMouseInput + horizontalRightStickInput;
-        float horizontalInput = horizontalMouseInput;
-        // float verticalInput = verticalMouseInput + verticalRightStickInput;
-        float verticalInput = verticalMouseInput ;
-
-        // Rotaciona horizontalmente ao redor do jogador com base no mouse ou controle
-        offset = Quaternion.AngleAxis(horizontalInput * rotationSpeed, Vector3.up) * offset;
+        // Rotaciona horizontalmente ao redor do jogador com base no mouse
+        offset = Quaternion.AngleAxis(horizontalMouseInput * rotationSpeed, Vector3.up) * offset;
 
         // Controla a rotação vertical, limitando para evitar uma rotação completa
-        currentRotationX -= verticalInput * verticalSpeed;
+        currentRotationX -= verticalMouseInput * verticalSpeed;
         currentRotationX = Mathf.Clamp(currentRotationX, -30f, 45f); // Limita o ângulo da câmera (cima e baixo)
 
         // Aplica a rotação vertical
         Vector3 cameraPosition = player.transform.position + offset;
         cameraPosition.y = player.transform.position.y + Mathf.Sin(Mathf.Deg2Rad * currentRotationX) * offset.magnitude;
+
+        // Evita que a câmera fique abaixo do chão
+        if (cameraPosition.y < minCameraHeight)
+        {
+            cameraPosition.y = minCameraHeight;
+        }
+
         transform.position = cameraPosition;
 
         // Faz a câmera olhar para o jogador
