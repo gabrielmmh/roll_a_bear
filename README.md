@@ -2,15 +2,13 @@
 
 ## Descrição
 
-**Roll A Bear** é um jogo de aventura 3D onde o jogador controla um urso em busca de coletar o máximo de melancias possível enquanto tenta evitar ataques de cobras. O jogo oferece uma experiência simples e divertida, com gráficos minimalistas no estilo low-poly, e é jogado exclusivamente com teclado e mouse.
-
-O objetivo do jogo é coletar melancias para ganhar pontos antes que o tempo acabe, mas fique atento às cobras, que atacam o urso e fazem com que ele perca pontos. A jogabilidade foca em equilíbrio entre exploração e estratégia para alcançar a maior pontuação possível.
+**Roll A Bear** é um jogo de aventura 3D onde o jogador controla um urso em busca de coletar o máximo de melancias possível enquanto tenta evitar ataques de cobras. O jogo oferece uma experiência simples e divertida, com gráficos minimalistas no estilo low-poly, e é jogado exclusivamente com teclado e mouse. O objetivo do jogo é coletar melancias para ganhar pontos antes que o tempo acabe, mas fique atento às cobras, que atacam o urso e fazem com que ele perca pontos. 
 
 ## Como Jogar
 
 - **Movimentação**: Use as teclas WASD para mover o urso.
 - **Olhar ao redor**: Use o mouse para controlar a câmera.
-- **Coletar Melancias**: Ao encontrar melancias, aproxime-se para coletá-las e ganhar pontos.
+- **Coletar Melancias**: Aproxime-se de melancias para coletá-las e ganhar pontos. 
 - **Evitar Cobras**: Se estiver dentro do raio de ataque de uma cobra, ela atacará e o urso perderá pontos.
 
 ## Controles
